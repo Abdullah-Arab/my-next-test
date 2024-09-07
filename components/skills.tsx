@@ -54,7 +54,7 @@ export function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-white dark:bg-neutral-950">
+    <section id="skills" className="py-20 bg-white dark:bg-zinc-800">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">
           Skills & Expertise

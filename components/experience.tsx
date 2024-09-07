@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 export function Experience() {
   const experiences = [
@@ -6,33 +6,36 @@ export function Experience() {
       title: "Freelance Software Developer",
       company: "Self-employed",
       date: "2018 - Present",
-      description: "Worked on multiple mobile and web applications, specializing in Flutter React development."
+      description:
+        "Worked on multiple mobile and web applications, specializing in Flutter React development.",
     },
     // Add more experiences here
-  ]
+  ];
 
   const education = [
     {
       degree: "Bachelor's Degree in Computer Science",
       institution: "University of Tripoli",
-      date: "2015 - 2019"
+      date: "2015 - 2019",
     },
     {
       degree: "Linear Algebra Course",
       institution: "MIT (Online)",
-      date: "2020"
-    }
-  ]
+      date: "2020",
+    },
+  ];
 
   return (
-    <section id="experience" className="py-20 bg-white">
+    <section id="experience" className="py-20 bg-white dark:bg-zinc-800">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-8">Experience</h2>
         <div className="mb-12">
           {experiences.map((exp, index) => (
             <div key={index} className="mb-6">
               <h3 className="text-xl font-semibold">{exp.title}</h3>
-              <p className="text-gray-600">{exp.company} | {exp.date}</p>
+              <p className="text-gray-600">
+                {exp.company} | {exp.date}
+              </p>
               <p className="mt-2">{exp.description}</p>
             </div>
           ))}
@@ -41,10 +44,12 @@ export function Experience() {
         {education.map((edu, index) => (
           <div key={index} className="mb-4">
             <h4 className="text-lg font-semibold">{edu.degree}</h4>
-            <p className="text-gray-600">{edu.institution} | {edu.date}</p>
+            <p className="text-gray-600">
+              {edu.institution} | {edu.date}
+            </p>
           </div>
         ))}
       </div>
     </section>
-  )
+  );
 }
