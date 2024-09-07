@@ -16,8 +16,8 @@ export function Page() {
       <div className="min-h-screen bg-white text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
         <Navbar />
         <main>
-          {/* <Home /> */}
-          <Hero />
+          <Home />
+          {/* <Hero /> */}
           <About />
           <Skills />
           <Projects />

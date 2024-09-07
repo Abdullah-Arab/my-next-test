@@ -3,6 +3,9 @@
 import { Button } from "@/components/ui/button";
 
 export function Home() {
+  const scrollToSection = (sectionId) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div>
       <div className="relative isolate px-6 pt-14 lg:px-8">
@@ -19,9 +22,21 @@ export function Home() {
               pages.
             </p>
 
-            <div className="flex space-x-2 ">
-              <Button title="View My Work" onClick={() => {}} />
-              <Button title="Contact" onClick={() => {}} />
+            <div className="flex justify-start space-x-4 mt-4">
+              <Button
+                size="lg"
+                onClick={() => scrollToSection("contact")}
+                className="bg-gray-900 hover:bg-gray-800 text-white dark:bg-gray-100 dark:hover:bg-gray-200 dark:text-gray-900"
+              >
+                Get in Touch
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => scrollToSection("projects")}
+              >
+                View Projects
+              </Button>
             </div>
           </div>
         </div>
