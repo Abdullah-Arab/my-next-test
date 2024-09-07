@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { BriefcaseIcon, CodeIcon, PenToolIcon } from "lucide-react";
 
 export function Home() {
   const scrollToSection = (sectionId) => {
@@ -21,7 +22,20 @@ export function Home() {
               development, I specialize in building high-converting landing
               pages.
             </p>
-
+            {/* <div className="flex justify-start space-x-8 mt-8 mb-8">
+              <div className="text-center">
+                <CodeIcon className="h-8 w-8 mx-auto mb-2" />
+                <p className="text-sm font-medium">Clean Code</p>
+              </div>
+              <div className="text-center">
+                <BriefcaseIcon className="h-8 w-8 mx-auto mb-2" />
+                <p className="text-sm font-medium">5+ Years Experience</p>
+              </div>
+              <div className="text-center">
+                <PenToolIcon className="h-8 w-8 mx-auto mb-2" />
+                <p className="text-sm font-medium">Creative Solutions</p>
+              </div>
+            </div> */}
             <div className="flex justify-start space-x-4 mt-4">
               <Button
                 size="lg"
