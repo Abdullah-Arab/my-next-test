@@ -15,6 +15,11 @@ import {
   Code,
   Database,
   ChevronDown,
+  Phone,
+  Mail,
+  Linkedin,
+  Github,
+  Twitter,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -703,40 +708,74 @@ function Experience() {
 
 // Contact Component
 function Contact() {
+  const contactInfo = {
+    phone: "+1 (123) 456-7890",
+    email: "abdullah.arab@example.com",
+  };
+
+  const socialMedia = [
+    {
+      name: "LinkedIn",
+      icon: Linkedin,
+      url: "https://www.linkedin.com/in/yourusername",
+    },
+    { name: "GitHub", icon: Github, url: "https://github.com/yourusername" },
+    { name: "Twitter", icon: Twitter, url: "https://twitter.com/yourusername" },
+  ];
+
   return (
-    <section id="contact" className="py-20 bg-neutral-100 dark:bg-neutral-800">
+    <section id="contact" className="py-20 bg-muted">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Contact Me</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">Get in Touch</h2>
         <div className="max-w-md mx-auto">
-          <p className="text-center mb-8">
-            Looking to bring your idea to life? Let's collaborate.
-          </p>
-          <form className="space-y-4">
-            <Input type="text" placeholder="Your Name" required />
-            <Input type="email" placeholder="Your Email" required />
-            <Textarea placeholder="Your Message" required />
-            <Button type="submit" className="w-full">
-              Send Message
-            </Button>
-          </form>
-          <div className="mt-8 flex justify-center space-x-4">
-            <a
-              href="https://linkedin.com/in/yourusername"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-neutral-900 hover:underline dark:text-neutral-50"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com/yourusername"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-neutral-900 hover:underline dark:text-neutral-50"
-            >
-              GitHub
-            </a>
-            {/* Add more social media links as needed */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-2xl font-semibold text-center">
+                Contact Information
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex items-center justify-center space-x-2">
+                <Phone className="w-5 h-5 text-primary" />
+                <span>{contactInfo.phone}</span>
+              </div>
+              <div className="flex items-center justify-center space-x-2">
+                <Mail className="w-5 h-5 text-primary" />
+                <a
+                  href={`mailto:${contactInfo.email}`}
+                  className="hover:underline"
+                >
+                  {contactInfo.email}
+                </a>
+              </div>
+            </CardContent>
+          </Card>
+
+          <div className="mt-8">
+            <h3 className="text-xl font-semibold text-center mb-4">
+              Connect with Me
+            </h3>
+            <div className="flex justify-center space-x-4">
+              {socialMedia.map((platform) => (
+                <a
+                  key={platform.name}
+                  href={platform.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors duration-200"
+                >
+                  <platform.icon className="w-6 h-6 text-primary" />
+                  <span className="sr-only">{platform.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-muted-foreground">
+              I'm always open to new opportunities and collaborations. Feel free
+              to reach out if you'd like to work together or just have a chat!
+            </p>
           </div>
         </div>
       </div>
