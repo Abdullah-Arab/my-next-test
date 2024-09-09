@@ -139,6 +139,7 @@ function Navbar() {
 function Home() {
   const [typedText, setTypedText] = useState("");
   const fullText = "Full Stack Developer | Problem Solver | Tech Enthusiast";
+  // const fullText = "Turning ideas into apps that matter";
 
   useEffect(() => {
     let i = 0;
