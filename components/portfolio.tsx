@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ThemeProvider, useTheme } from "next-themes";
 import Image from "next/image";
-
+import { ThemeProvider, useTheme } from "next-themes";
 import { Moon, Sun, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -275,28 +274,31 @@ function Skills() {
 
 // Projects Component
 function Projects() {
-  const featuredProjects = [
-    {
-      name: "Hajat - حاجات",
-      description:
-        "A B2B wholesale delivery app for groceries. Developed using Flutter with Bloc state management. Led the development and implementation of cart system, ensuring smooth efficient user experience.",
-      features: ["Cart system", "B2B functionality", "Wholesale delivery"],
-      github: "https://github.com/yourusername/hajat",
-      demo: "https://hajat-demo.com",
-      image: "/placeholder.svg?height=200&width=300",
-    },
+  const featuredProject = {
+    name: "Hajat - حاجات",
+    description:
+      "A B2B wholesale delivery app for groceries. Developed using Flutter with Bloc state management. Led the development and implementation of cart system, ensuring smooth efficient user experience.",
+    features: [
+      "Cart system",
+      "B2B functionality",
+      "Wholesale delivery",
+      "Real-time order tracking",
+      "Inventory management",
+    ],
+    github: "https://github.com/yourusername/hajat",
+    demo: "https://hajat-demo.com",
+    image: "/placeholder.svg?height=400&width=600",
+  };
+
+  const regularProjects = [
     {
       name: "Portfolio Website",
       description:
         "A responsive portfolio website built with Next.js and Tailwind CSS, showcasing my projects skills.",
       features: ["Responsive design", "Dark mode", "Project showcase"],
       github: "https://github.com/yourusername/portfolio",
-      demo: "https://yourdomain.com",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/placeholder.svg?height=150&width=250",
     },
-  ];
-
-  const regularProjects = [
     {
       name: "Task Manager API",
       description:
@@ -325,14 +327,6 @@ function Projects() {
       github: "https://github.com/yourusername/ecommerce-platform",
       image: "/placeholder.svg?height=150&width=250",
     },
-    {
-      name: "Fitness Tracker",
-      description:
-        "A mobile app for tracking workouts and monitoring fitness progress.",
-      features: ["Workout logging", "Progress charts", "Goal setting"],
-      github: "https://github.com/yourusername/fitness-tracker",
-      image: "/placeholder.svg?height=150&width=250",
-    },
   ];
 
   return (
@@ -340,42 +334,42 @@ function Projects() {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">Projects</h2>
 
-        <h3 className="text-2xl font-semibold mb-6">Featured Projects</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          {featuredProjects.map((project, index) => (
-            <Card key={index} className="flex flex-col">
-              <Image
-                src={project.image}
-                alt={project.name}
-                width={300}
-                height={200}
-                className="w-full h-48 object-cover rounded-t-lg"
-              />
-              <CardHeader>
-                <CardTitle>{project.name}</CardTitle>
-                <CardDescription>{project.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-grow">
+        <h3 className="text-2xl font-semibold mb-6">Featured Project</h3>
+        <Card className="mb-12">
+          <div className="md:flex">
+            <Image
+              src={featuredProject.image}
+              alt={featuredProject.name}
+              width={600}
+              height={400}
+              className="w-full md:w-1/2 h-64 md:h-auto object-cover rounded-t-lg md:rounded-l-lg md:rounded-t-none"
+            />
+            <div className="p-6 md:w-1/2">
+              <CardTitle className="text-2xl mb-2">
+                {featuredProject.name}
+              </CardTitle>
+              <CardDescription className="mb-4">
+                {featuredProject.description}
+              </CardDescription>
+              <div className="mb-4">
                 <h4 className="font-semibold mb-2">Key Features:</h4>
                 <ul className="list-disc list-inside">
-                  {project.features.map((feature, i) => (
+                  {featuredProject.features.map((feature, i) => (
                     <li key={i}>{feature}</li>
                   ))}
                 </ul>
-              </CardContent>
-              <CardFooter className="flex justify-between">
+              </div>
+              <div className="flex space-x-4">
                 <Button asChild variant="outline">
-                  <Link href={project.github}>GitHub</Link>
+                  <Link href={featuredProject.github}>GitHub</Link>
                 </Button>
-                {project.demo && (
-                  <Button asChild>
-                    <Link href={project.demo}>Live Demo</Link>
-                  </Button>
-                )}
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
+                <Button asChild>
+                  <Link href={featuredProject.demo}>Live Demo</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Card>
 
         <h3 className="text-2xl font-semibold mb-6">Other Projects</h3>
         <ScrollArea className="w-full whitespace-nowrap rounded-md border">
