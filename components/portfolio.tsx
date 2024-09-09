@@ -14,6 +14,7 @@ import {
   Smartphone,
   Code,
   Database,
+  ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -135,7 +136,6 @@ function Navbar() {
   );
 }
 
-// Home Component
 function Home() {
   const [typedText, setTypedText] = useState("");
   const fullText = "Full Stack Developer | Problem Solver | Tech Enthusiast";
@@ -197,6 +197,90 @@ function Home() {
   );
 }
 
+// Home Component
+// function Home() {
+//   const [typedText, setTypedText] = useState("");
+//   const fullText = "Full Stack Developer | Problem Solver | Tech Enthusiast";
+
+//   useEffect(() => {
+//     let i = 0;
+//     const typingInterval = setInterval(() => {
+//       if (i < fullText.length) {
+//         setTypedText(fullText.slice(0, i + 1));
+//         i++;
+//       } else {
+//         clearInterval(typingInterval);
+//       }
+//     }, 50);
+
+//     return () => clearInterval(typingInterval);
+//   }, []);
+
+//   const services = [
+//     { name: "Web Development", icon: Globe },
+//     { name: "Mobile Development", icon: Smartphone },
+//     { name: "Full Stack Solutions", icon: Code },
+//     { name: "Database Design", icon: Database },
+//   ];
+
+//   return (
+//     <section
+//       id="home"
+//       className="min-h-screen flex flex-col justify-center items-center text-center p-6"
+//     >
+//       <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+//         <div className="text-left space-y-6">
+//           <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up">
+//             Hi, I'm Abdullah Arab
+//           </h1>
+//           <p className="text-xl md:text-2xl text-muted-foreground mb-4 animate-fade-in-up animation-delay-200">
+//             Turning ideas into apps that matter
+//           </p>
+//           <p className="text-lg md:text-xl text-primary font-semibold h-8 mb-8 animate-fade-in-up animation-delay-400 ">
+//             {typedText}
+//           </p>
+//           <div className="space-x-4 mb-8">
+//             <Button asChild>
+//               <Link href="#projects">Explore My Work</Link>
+//             </Button>
+//             <Button asChild variant="outline">
+//               <Link href="#contact">Contact Me</Link>
+//             </Button>
+//           </div>
+//           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+//             {services.map((service, index) => (
+//               <div key={index} className="flex flex-col items-center">
+//                 <div className="bg-primary/10 p-4 rounded-full mb-2">
+//                   <service.icon className="w-8 h-8 text-primary" />
+//                 </div>
+//                 <p className="text-sm font-medium">{service.name}</p>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+
+//         <div className="relative hidden md:block">
+//           <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full animate-pulse"></div>
+//           <Image
+//             src="/images/placeholder.png"
+//             alt="Abdullah Arab"
+//             width={600}
+//             height={600}
+//             className="rounded-full animate-float"
+//           />
+//         </div>
+//       </div>
+//       {/* <div className="mt-16 w-full">
+//         <h2 className="text-2xl font-semibold text-center mb-8 animate-fade-in-up animation-delay-800">
+//           My Services
+//         </h2>
+//       </div> */}
+//       <div className="mt-16 animate-bounce">
+//         <ChevronDown className="w-8 h-8 text-primary" />
+//       </div>
+//     </section>
+//   );
+// }
 // About Component
 function About() {
   return (
@@ -333,7 +417,7 @@ function Projects() {
     ],
     github: "https://github.com/yourusername/hajat",
     demo: "https://hajat-demo.com",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/images/placeholder.png",
   };
 
   const regularProjects = [
@@ -343,7 +427,7 @@ function Projects() {
         "A responsive portfolio website built with Next.js and Tailwind CSS, showcasing my projects skills.",
       features: ["Responsive design", "Dark mode", "Project showcase"],
       github: "https://github.com/yourusername/portfolio",
-      image: "/placeholder.svg?height=150&width=250",
+      image: "/images/placeholder.png",
     },
     {
       name: "Task Manager API",
