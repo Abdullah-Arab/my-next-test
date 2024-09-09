@@ -1003,13 +1003,13 @@ export function Portfolio() {
             className="
           h-[50vh]"
             // make the background diffrent in each theme
-            gradientBackgroundStart="rgb(215, 215, 217)"
-            gradientBackgroundEnd="rgb(60, 61, 64)"
-            firstColor="159, 163, 166"
-            secondColor="102, 106, 115"
+            gradientBackgroundStart="rgb(255, 235, 220)"
+            gradientBackgroundEnd="rgb(55, 58, 62)"
+            firstColor="255, 149, 0"
+            secondColor="97, 98, 102"
             thirdColor="255, 255, 255"
-            fourthColor="255, 255, 255"
-            fifthColor="255, 255, 255"
+            fourthColor="210, 210, 210"
+            fifthColor="65, 67, 70"
             pointerColor="255, 255, 255"
           >
             <Home />
