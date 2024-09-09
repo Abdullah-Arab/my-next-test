@@ -999,7 +999,21 @@ export function Portfolio() {
       <div className="min-h-screen bg-white text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
         <Navbar />
         <main>
-          <Home />
+          <BackgroundGradientAnimation
+            className="
+          h-[50vh]"
+            // make the background diffrent in each theme
+            gradientBackgroundStart="rgb(215, 215, 217)"
+            gradientBackgroundEnd="rgb(60, 61, 64)"
+            firstColor="159, 163, 166"
+            secondColor="102, 106, 115"
+            thirdColor="255, 255, 255"
+            fourthColor="255, 255, 255"
+            fifthColor="255, 255, 255"
+            pointerColor="255, 255, 255"
+          >
+            <Home />
+          </BackgroundGradientAnimation>
           <About />
           <Skills />
           <Projects />
