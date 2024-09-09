@@ -4,7 +4,17 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ThemeProvider, useTheme } from "next-themes";
-import { Moon, Sun, Menu, GraduationCap, Briefcase } from "lucide-react";
+import {
+  Moon,
+  Sun,
+  Menu,
+  GraduationCap,
+  Briefcase,
+  Globe,
+  Smartphone,
+  Code,
+  Database,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -127,18 +137,54 @@ function Navbar() {
 
 // Home Component
 function Home() {
+  const [typedText, setTypedText] = useState("");
+  const fullText = "Full Stack Developer | Problem Solver | Tech Enthusiast";
+
+  useEffect(() => {
+    let i = 0;
+    const typingInterval = setInterval(() => {
+      if (i < fullText.length) {
+        setTypedText(fullText.slice(0, i + 1));
+        i++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 50);
+
+    return () => clearInterval(typingInterval);
+  }, []);
+
+  const services = [
+    { name: "Web Development", icon: Globe },
+    { name: "Mobile Development", icon: Smartphone },
+    { name: "Full Stack Solutions", icon: Code },
+    { name: "Database Design", icon: Database },
+  ];
+
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col justify-center items-center text-center p-6 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
+      className="min-h-screen flex flex-col justify-center items-center text-center p-6"
     >
-      <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-        Hi, I'm Abdullah Arab – turning ideas into apps that matter.
+      <h1 className="text-4xl md:text-6xl font-bold mb-4">
+        Hi, I'm Abdullah Arab
       </h1>
-      <p className="text-xl md:text-2xl text-white mb-8">
-        Specialized in Flutter and React development, with a knack for creating
-        intuitive user experiences and scalable software solutions.
+      <p className="text-xl md:text-2xl text-muted-foreground mb-4">
+        Turning ideas into apps that matter
       </p>
+      <p className="text-lg md:text-xl text-primary font-semibold h-8 mb-8">
+        {typedText}
+      </p>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        {services.map((service, index) => (
+          <div key={index} className="flex flex-col items-center">
+            <div className="bg-primary/10 p-4 rounded-full mb-2">
+              <service.icon className="w-8 h-8 text-primary" />
+            </div>
+            <p className="text-sm font-medium">{service.name}</p>
+          </div>
+        ))}
+      </div>
       <div className="space-x-4">
         <Button asChild>
           <Link href="#projects">Explore My Work</Link>
