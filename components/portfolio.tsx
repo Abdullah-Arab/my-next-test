@@ -445,7 +445,7 @@ function Projects() {
         "Task prioritization",
       ],
       github: "https://github.com/yourusername/task-manager-api",
-      image: "/placeholder.svg?height=150&width=250",
+      image: "/images/placeholder.png",
     },
     {
       name: "Weather App",
@@ -453,7 +453,7 @@ function Projects() {
         "A simple weather application that fetches and displays current data for any location.",
       features: ["Geolocation", "Weather API integration", "Responsive design"],
       github: "https://github.com/yourusername/weather-app",
-      image: "/placeholder.svg?height=150&width=250",
+      image: "/images/placeholder.png",
     },
     {
       name: "E-commerce Platform",
@@ -461,7 +461,7 @@ function Projects() {
         "A full-stack e-commerce platform with product listings, shopping cart, and checkout functionality.",
       features: ["Product catalog", "User accounts", "Payment integration"],
       github: "https://github.com/yourusername/ecommerce-platform",
-      image: "/placeholder.svg?height=150&width=250",
+      image: "/images/placeholder.png",
     },
   ];
 
@@ -565,6 +565,7 @@ function Experience() {
         "Mentored junior developers, improving team productivity by 25%",
       ],
       technologies: ["React", "Node.js", "AWS", "Docker", "GraphQL"],
+      image: "/images/placeholder.png",
     },
     {
       title: "Full Stack Developer",
@@ -578,6 +579,7 @@ function Experience() {
         "Implemented responsive design principles, enhancing mobile user engagement by 50%",
       ],
       technologies: ["Flutter", "React", "Express.js", "MongoDB", "Firebase"],
+      image: "/images/placeholder.png",
     },
     {
       title: "Freelance Software Developer",
@@ -591,6 +593,7 @@ function Experience() {
         "Developed a custom CMS that increased content management efficiency by 40%",
       ],
       technologies: ["React", "Flutter", "WordPress", "PHP", "MySQL"],
+      image: "/images/placeholder.png",
     },
   ];
 
@@ -606,6 +609,7 @@ function Experience() {
         "Published a paper on efficient distributed computing algorithms",
         "Completed a thesis on optimizing neural networks for edge devices",
       ],
+      image: "/images/placeholder.png",
     },
     {
       degree: "Bachelor's Degree in Computer Science",
@@ -618,6 +622,7 @@ function Experience() {
         "Led the university's programming team to national competition finals",
         "Developed an award-winning project on smart home automation",
       ],
+      image: "/images/placeholder.png",
     },
     {
       degree: "Linear Algebra Course",
@@ -629,11 +634,12 @@ function Experience() {
         "Completed with a perfect score",
         "Applied learnings to optimize matrix operations in a machine learning project",
       ],
+      image: "/images/placeholder.png",
     },
   ];
 
   return (
-    <section id="experience" className="py-20 ">
+    <section id="experience" className="py-20 bg-white dark:bg-neutral-950">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">
           Experience & Education
@@ -645,30 +651,43 @@ function Experience() {
           </h3>
           <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <Card key={index} className="relative">
+              <Card key={index} className="relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-1 h-full bg-primary rounded-l-lg" />
-                <CardHeader>
-                  <CardTitle>{exp.title}</CardTitle>
-                  <CardDescription>
-                    {exp.company} | {exp.date}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="mb-4">{exp.description}</p>
-                  <h4 className="font-semibold mb-2">Key Achievements:</h4>
-                  <ul className="list-disc list-inside mb-4">
-                    {exp.achievements.map((achievement, i) => (
-                      <li key={i}>{achievement}</li>
-                    ))}
-                  </ul>
-                  <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech, i) => (
-                      <Badge key={i} variant="secondary">
-                        {tech}
-                      </Badge>
-                    ))}
+                <div className="flex flex-col md:flex-row">
+                  <div className="md:w-1/4 p-6 flex justify-center items-center">
+                    <Image
+                      src={exp.image}
+                      alt={exp.company}
+                      width={100}
+                      height={100}
+                      className="rounded-full"
+                    />
                   </div>
-                </CardContent>
+                  <div className="md:w-3/4 p-6">
+                    <CardHeader>
+                      <CardTitle>{exp.title}</CardTitle>
+                      <CardDescription>
+                        {exp.company} | {exp.date}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="mb-4">{exp.description}</p>
+                      <h4 className="font-semibold mb-2">Key Achievements:</h4>
+                      <ul className="list-disc list-inside mb-4">
+                        {exp.achievements.map((achievement, i) => (
+                          <li key={i}>{achievement}</li>
+                        ))}
+                      </ul>
+                      <div className="flex flex-wrap gap-2">
+                        {exp.technologies.map((tech, i) => (
+                          <Badge key={i} variant="secondary">
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </div>
+                </div>
               </Card>
             ))}
           </div>
@@ -680,23 +699,36 @@ function Experience() {
           </h3>
           <div className="space-y-8">
             {education.map((edu, index) => (
-              <Card key={index} className="relative">
+              <Card key={index} className="relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-1 h-full bg-secondary rounded-l-lg" />
-                <CardHeader>
-                  <CardTitle>{edu.degree}</CardTitle>
-                  <CardDescription>
-                    {edu.institution} | {edu.date}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="mb-4">{edu.description}</p>
-                  <h4 className="font-semibold mb-2">Achievements:</h4>
-                  <ul className="list-disc list-inside">
-                    {edu.achievements.map((achievement, i) => (
-                      <li key={i}>{achievement}</li>
-                    ))}
-                  </ul>
-                </CardContent>
+                <div className="flex flex-col md:flex-row">
+                  <div className="md:w-1/4 p-6 flex justify-center items-center">
+                    <Image
+                      src={edu.image}
+                      alt={edu.institution}
+                      width={100}
+                      height={100}
+                      className="rounded-full"
+                    />
+                  </div>
+                  <div className="md:w-3/4 p-6">
+                    <CardHeader>
+                      <CardTitle>{edu.degree}</CardTitle>
+                      <CardDescription>
+                        {edu.institution} | {edu.date}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="mb-4">{edu.description}</p>
+                      <h4 className="font-semibold mb-2">Achievements:</h4>
+                      <ul className="list-disc list-inside">
+                        {edu.achievements.map((achievement, i) => (
+                          <li key={i}>{achievement}</li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </div>
+                </div>
               </Card>
             ))}
           </div>
@@ -705,7 +737,6 @@ function Experience() {
     </section>
   );
 }
-
 // Contact Component
 function Contact() {
   const contactInfo = {
