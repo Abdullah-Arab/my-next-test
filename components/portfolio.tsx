@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ThemeProvider } from "next-themes";
-import { useTheme } from "next-themes";
+import { ThemeProvider, useTheme } from "next-themes";
+import Image from "next/image";
 
 import { Moon, Sun, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -275,7 +275,7 @@ function Skills() {
 
 // Projects Component
 function Projects() {
-  const projects = [
+  const featuredProjects = [
     {
       name: "Hajat - حاجات",
       description:
@@ -283,22 +283,79 @@ function Projects() {
       features: ["Cart system", "B2B functionality", "Wholesale delivery"],
       github: "https://github.com/yourusername/hajat",
       demo: "https://hajat-demo.com",
+      image: "/placeholder.svg?height=200&width=300",
     },
-    // Add more projects here
+    {
+      name: "Portfolio Website",
+      description:
+        "A responsive portfolio website built with Next.js and Tailwind CSS, showcasing my projects skills.",
+      features: ["Responsive design", "Dark mode", "Project showcase"],
+      github: "https://github.com/yourusername/portfolio",
+      demo: "https://yourdomain.com",
+      image: "/placeholder.svg?height=200&width=300",
+    },
+  ];
+
+  const regularProjects = [
+    {
+      name: "Task Manager API",
+      description:
+        "A RESTful API for a task management application built with Node.js and Express.",
+      features: [
+        "CRUD operations",
+        "User authentication",
+        "Task prioritization",
+      ],
+      github: "https://github.com/yourusername/task-manager-api",
+      image: "/placeholder.svg?height=150&width=250",
+    },
+    {
+      name: "Weather App",
+      description:
+        "A simple weather application that fetches and displays current data for any location.",
+      features: ["Geolocation", "Weather API integration", "Responsive design"],
+      github: "https://github.com/yourusername/weather-app",
+      image: "/placeholder.svg?height=150&width=250",
+    },
+    {
+      name: "E-commerce Platform",
+      description:
+        "A full-stack e-commerce platform with product listings, shopping cart, and checkout functionality.",
+      features: ["Product catalog", "User accounts", "Payment integration"],
+      github: "https://github.com/yourusername/ecommerce-platform",
+      image: "/placeholder.svg?height=150&width=250",
+    },
+    {
+      name: "Fitness Tracker",
+      description:
+        "A mobile app for tracking workouts and monitoring fitness progress.",
+      features: ["Workout logging", "Progress charts", "Goal setting"],
+      github: "https://github.com/yourusername/fitness-tracker",
+      image: "/placeholder.svg?height=150&width=250",
+    },
   ];
 
   return (
     <section id="projects" className="py-20 bg-neutral-100 dark:bg-neutral-800">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <Card key={index}>
+        <h2 className="text-3xl font-bold text-center mb-12">Projects</h2>
+
+        <h3 className="text-2xl font-semibold mb-6">Featured Projects</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+          {featuredProjects.map((project, index) => (
+            <Card key={index} className="flex flex-col">
+              <Image
+                src={project.image}
+                alt={project.name}
+                width={300}
+                height={200}
+                className="w-full h-48 object-cover rounded-t-lg"
+              />
               <CardHeader>
                 <CardTitle>{project.name}</CardTitle>
                 <CardDescription>{project.description}</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-grow">
                 <h4 className="font-semibold mb-2">Key Features:</h4>
                 <ul className="list-disc list-inside">
                   {project.features.map((feature, i) => (
@@ -310,13 +367,54 @@ function Projects() {
                 <Button asChild variant="outline">
                   <Link href={project.github}>GitHub</Link>
                 </Button>
-                <Button asChild>
-                  <Link href={project.demo}>Live Demo</Link>
-                </Button>
+                {project.demo && (
+                  <Button asChild>
+                    <Link href={project.demo}>Live Demo</Link>
+                  </Button>
+                )}
               </CardFooter>
             </Card>
           ))}
         </div>
+
+        <h3 className="text-2xl font-semibold mb-6">Other Projects</h3>
+        <ScrollArea className="w-full whitespace-nowrap rounded-md border">
+          <div className="flex w-max space-x-4 p-4">
+            {regularProjects.map((project, index) => (
+              <Card key={index} className="w-[250px]">
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  width={250}
+                  height={150}
+                  className="w-full h-36 object-cover rounded-t-lg"
+                />
+                <CardHeader>
+                  <CardTitle>{project.name}</CardTitle>
+                  <CardDescription className="line-clamp-2">
+                    {project.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <h4 className="font-semibold mb-2">Key Features:</h4>
+                  <ul className="list-disc list-inside">
+                    {project.features.map((feature, i) => (
+                      <li key={i} className="line-clamp-1">
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+                <CardFooter>
+                  <Button asChild variant="outline" className="w-full">
+                    <Link href={project.github}>GitHub</Link>
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
       </div>
     </section>
   );
