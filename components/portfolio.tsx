@@ -544,6 +544,9 @@ function Skills() {
         "Firebase",
         "Git",
         "Dockers",
+        "UIUX",
+        "Supabase",
+        "Pocketbase",
       ],
     },
   ];
@@ -611,57 +614,70 @@ function Skills() {
 // Projects Component
 function Projects() {
   const featuredProject = {
-    name: "Hajat - حاجات",
+    name: "Hajat Delivery",
     description:
-      "A B2B wholesale delivery app for groceries. Developed using Flutter with Bloc state management. Led the development and implementation of cart system, ensuring smooth efficient user experience.",
+      "A B2B wholesale delivery app for groceries. Developed using Flutter with Bloc state management. Led the mobile app development and implementation, ensuring smooth efficient user experience.",
     features: [
-      "Cart system",
-      "B2B functionality",
-      "Wholesale delivery",
-      "Real-time order tracking",
-      "Inventory management",
+      // "Cart system",
+      // "B2B functionality",
+      // "Wholesale delivery",
+      // "Real-time order tracking",
+      // "Inventory management",
     ],
     github: "https://github.com/yourusername/hajat",
     demo: "https://hajat-demo.com",
-    image: "/images/placeholder.png",
+    image: "/images/hajat_prev.png",
   };
 
   const regularProjects = [
     {
-      name: "Portfolio Website",
-      description:
-        "A responsive portfolio website built with Next.js and Tailwind CSS, showcasing my projects skills.",
-      features: ["Responsive design", "Dark mode", "Project showcase"],
-      github: "https://github.com/yourusername/portfolio",
-      image: "/images/placeholder.png",
+      name: "Matrex",
+      description: "Mobile App",
+      features: [],
+      github: "https://onelink.to/nnz7qv",
+      image: "/images/matrex_prev.png",
     },
     {
-      name: "Task Manager API",
-      description:
-        "A RESTful API for a task management application built with Node.js and Express.",
-      features: [
-        "CRUD operations",
-        "User authentication",
-        "Task prioritization",
-      ],
-      github: "https://github.com/yourusername/task-manager-api",
-      image: "/images/placeholder.png",
+      name: "Bekam",
+      description: "Mobile App",
+      features: [],
+      github: "onlink.to/bekam",
+      image: "/images/bekam_prev.png",
     },
     {
-      name: "Weather App",
-      description:
-        "A simple weather application that fetches and displays current data for any location.",
+      name: "Sizzling",
+      description: "Mobile App",
+      features: [],
+      github: "",
+      image: "/images/sizzling_prev.png",
+    },
+    {
+      name: "Perde Festival",
+      description: "Landing Page ",
       features: ["Geolocation", "Weather API integration", "Responsive design"],
-      github: "https://github.com/yourusername/weather-app",
-      image: "/images/placeholder.png",
+      github: "https://perdefestival.com/",
+      image: "/images/perde_prev.png",
     },
     {
-      name: "E-commerce Platform",
-      description:
-        "A full-stack e-commerce platform with product listings, shopping cart, and checkout functionality.",
+      name: "El kharouba",
+      description: "Landing Page ",
       features: ["Product catalog", "User accounts", "Payment integration"],
-      github: "https://github.com/yourusername/ecommerce-platform",
-      image: "/images/placeholder.png",
+      github: "https://kharouba.ly/",
+      image: "/images/kharouba_prev.png",
+    },
+    {
+      name: "El Kayan",
+      description: "Landing Page ",
+      features: ["Product catalog", "User accounts", "Payment integration"],
+      github: "https://elkayan.ly/",
+      image: "/images/elkayan_prev.png",
+    },
+    {
+      name: "Green House",
+      description: "Landing Page ",
+      features: ["Product catalog", "User accounts", "Payment integration"],
+      github: "https://greenhouse.ly/",
+      image: "/images/gh_prev.png",
     },
   ];
 
@@ -687,28 +703,28 @@ function Projects() {
               <CardDescription className="mb-4">
                 {featuredProject.description}
               </CardDescription>
-              <div className="mb-4">
+              {/* <div className="mb-4">
                 <h4 className="font-semibold mb-2">Key Features:</h4>
                 <ul className="list-disc list-inside">
                   {featuredProject.features.map((feature, i) => (
                     <li key={i}>{feature}</li>
                   ))}
                 </ul>
-              </div>
-              <div className="flex space-x-4">
+              </div> */}
+              {/* <div className="flex space-x-4">
                 <Button asChild variant="outline">
                   <Link href={featuredProject.github}>GitHub</Link>
                 </Button>
                 <Button asChild>
                   <Link href={featuredProject.demo}>Live Demo</Link>
                 </Button>
-              </div>
+              </div> */}
             </div>
           </div>
         </Card>
 
         <h3 className="text-2xl font-semibold mb-6">Other Projects</h3>
-        <ScrollArea className="w-full whitespace-nowrap rounded-md border">
+        <ScrollArea className="w-full whitespace-nowrap rounded-md border dark:border-neutral-900">
           <div className="flex w-max space-x-4 p-4">
             {regularProjects.map((project, index) => (
               <Card key={index} className="w-[250px]">
@@ -725,7 +741,7 @@ function Projects() {
                     {project.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                {/* <CardContent>
                   <h4 className="font-semibold mb-2">Key Features:</h4>
                   <ul className="list-disc list-inside">
                     {project.features.map((feature, i) => (
@@ -734,11 +750,15 @@ function Projects() {
                       </li>
                     ))}
                   </ul>
-                </CardContent>
+                </CardContent> */}
                 <CardFooter>
-                  <Button asChild variant="outline" className="w-full">
-                    <Link href={project.github}>GitHub</Link>
-                  </Button>
+                  {project.github && (
+                    <Button asChild variant="outline" className="w-full">
+                      <Link href={project.github} target="_blank">
+                        Open
+                      </Link>
+                    </Button>
+                  )}
                 </CardFooter>
               </Card>
             ))}
