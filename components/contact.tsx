@@ -11,7 +11,7 @@ export function Contact() {
         <h2 className="text-3xl font-bold text-center mb-8">Contact Me</h2>
         <div className="max-w-md mx-auto">
           <p className="text-center mb-8">
-            Looking to bring your idea to life? Let's collaborate.
+            Looking to bring your idea to life? Let&apos;s collaborate.
           </p>
           <form className="space-y-4">
             <Input type="text" placeholder="Your Name" required />

@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ThemeProvider, useTheme } from "next-themes";
@@ -9,23 +9,13 @@ import {
   Moon,
   Sun,
   Menu,
-  GraduationCap,
+  
   Briefcase,
-  Globe,
-  Smartphone,
   Code,
-  Database,
-  ChevronDown,
-  Phone,
-  Mail,
   Linkedin,
   Github,
-  BriefcaseIcon,
-  CodeIcon,
   PenToolIcon,
   Twitter,
-  GithubIcon,
-  LinkedinIcon,
   MailIcon,
   SendIcon,
   Facebook,
@@ -42,29 +32,29 @@ import {
   CardTitle,
   CardFooter,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import Hero from "./hero";
-import exp from "constants";
 
 // Navbar Component
 function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const { theme, setTheme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Experience", href: "#experience" },
-    { name: "Contact", href: "#contact" },
-  ];
+  const navItems = useMemo(() => {
+    return [
+      { name: "Home", href: "#home" },
+      { name: "About", href: "#about" },
+      { name: "Skills", href: "#skills" },
+      { name: "Projects", href: "#projects" },
+      { name: "Experience", href: "#experience" },
+      { name: "Contact", href: "#contact" },
+    ];
+  }, []);
+ 
 
   useEffect(() => {
+    console.log("PRESSED");
     const handleScroll = () => {
       const sections = navItems.map((item) => item.name.toLowerCase());
       const currentSection = sections.find((section) => {
@@ -82,7 +72,7 @@ function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [navItems]);
 
   const NavLinks = ({ onClick = () => {} }) => (
     <>
@@ -209,7 +199,7 @@ export const BackgroundGradientAnimation = ({
     document.body.style.setProperty("--pointer-color", pointerColor);
     document.body.style.setProperty("--size", size);
     document.body.style.setProperty("--blending-value", blendingValue);
-  }, []);
+  }, [blendingValue, fifthColor, firstColor, fourthColor, gradientBackgroundEnd, gradientBackgroundStart, pointerColor, secondColor, size, thirdColor]);
 
   useEffect(() => {
     function move() {
@@ -224,7 +214,7 @@ export const BackgroundGradientAnimation = ({
     }
 
     move();
-  }, [tgX, tgY]);
+  }, [curX, curY, tgX, tgY]);
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
     if (interactiveRef.current) {
@@ -365,7 +355,7 @@ function Home() {
       className="min-h-screen flex flex-col justify-center items-center text-center p-6 "
     >
       <h1 className="text-4xl md:text-6xl font-bold mb-4">
-        Hi, I'm Abdullah Arab 👋🏻
+        Hi, I&apos;m Abdullah Arab 👋🏻
       </h1>
       {/* <p className="text-xl md:text-2xl text-muted-foreground mb-4">
         Turning ideas into apps that matter
@@ -429,7 +419,7 @@ function Home() {
 //       <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
 //         <div className="text-left space-y-6">
 //           <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up">
-//             Hi, I'm Abdullah Arab
+//             Hi, I&apos;m Abdullah Arab
 //           </h1>
 //           <p className="text-xl md:text-2xl text-muted-foreground mb-4 animate-fade-in-up animation-delay-200">
 //             Turning ideas into apps that matter
@@ -487,18 +477,18 @@ function About() {
         <h2 className="text-3xl font-bold text-center mb-8">About Me</h2>
         <div className="max-w-3xl mx-auto">
           <p className="text-lg mb-6">
-            I'm a software developer with over 4 years of experience in software
+            I&apos;m a software developer with over 4 years of experience in software
             development. I have a <strong>strong foundation</strong> in Software
             Development, and have freelanced as both a{" "}
-            <strong>web & mobile developer</strong>. I'm passionate about
+            <strong>web & mobile developer</strong>. I&apos;m passionate about
             building functional, high-performing applications using technologies
             like <strong>Flutter</strong> and React/Next.js.
           </p>
           <p className="text-lg">
-            From a young age, I've been drawn to{" "}
+            From a young age, I&apos;ve been drawn to{" "}
             <strong>problem-solving</strong> and{" "}
-            <strong>creating things</strong> that make people's lives easier.
-            When I'm not coding, I'm either exploring new technologies or gaming
+            <strong>creating things</strong> that make people&apos;s lives easier.
+            When I&apos;m not coding, I&apos;m either exploring new technologies or gaming
             to unwind.
           </p>
         </div>
@@ -512,7 +502,7 @@ function Skills() {
   const skillCategories = [
     {
       name: "Programming Languages",
-      description: "Core languages I'm proficient in",
+      description: "Core languages I&apos;m proficient in",
       skills: ["Java", "JavaScript", "TypeScript", "Dart", "Python", "C"],
     },
     {
@@ -779,193 +769,193 @@ function Projects() {
   );
 }
 
-// Experience Component
-function Experience() {
-  const experiences = [
-    {
-      title: "Senior Software Developer",
-      company: "Tech Innovators Inc.",
-      date: "2021 - Present",
-      description:
-        "Lead developer for multiple high-impact projects, focusing on scalable web applications and mobile solutions.",
-      achievements: [
-        "Spearheaded the development of a revolutionary B2B platform, increasing client acquisition by 40%",
-        "Implemented CI/CD pipelines, reducing deployment time by 60%",
-        "Mentored junior developers, improving team productivity by 25%",
-      ],
-      technologies: ["React", "Node.js", "AWS", "Docker", "GraphQL"],
-      image: "/images/placeholder.png",
-    },
-    {
-      title: "Full Stack Developer",
-      company: "Digital Solutions Ltd.",
-      date: "2019 - 2021",
-      description:
-        "Worked on a variety of web and mobile projects, with a focus on creating seamless user experiences.",
-      achievements: [
-        "Developed and launched 5 successful mobile apps using Flutter",
-        "Optimized database queries, improving application performance by 30%",
-        "Implemented responsive design principles, enhancing mobile user engagement by 50%",
-      ],
-      technologies: ["Flutter", "React", "Express.js", "MongoDB", "Firebase"],
-      image: "/images/placeholder.png",
-    },
-    {
-      title: "Freelance Software Developer",
-      company: "Self-employed",
-      date: "2018 - 2019",
-      description:
-        "Worked on multiple mobile and web applications for various clients, specializing in Flutter and React development.",
-      achievements: [
-        "Delivered 10+ projects for clients across different industries",
-        "Maintained a 100% client satisfaction rate",
-        "Developed a custom CMS that increased content management efficiency by 40%",
-      ],
-      technologies: ["React", "Flutter", "WordPress", "PHP", "MySQL"],
-      image: "/images/placeholder.png",
-    },
-  ];
+// // Experience Component
+// function Experience() {
+//   const experiences = [
+//     {
+//       title: "Senior Software Developer",
+//       company: "Tech Innovators Inc.",
+//       date: "2021 - Present",
+//       description:
+//         "Lead developer for multiple high-impact projects, focusing on scalable web applications and mobile solutions.",
+//       achievements: [
+//         "Spearheaded the development of a revolutionary B2B platform, increasing client acquisition by 40%",
+//         "Implemented CI/CD pipelines, reducing deployment time by 60%",
+//         "Mentored junior developers, improving team productivity by 25%",
+//       ],
+//       technologies: ["React", "Node.js", "AWS", "Docker", "GraphQL"],
+//       image: "/images/placeholder.png",
+//     },
+//     {
+//       title: "Full Stack Developer",
+//       company: "Digital Solutions Ltd.",
+//       date: "2019 - 2021",
+//       description:
+//         "Worked on a variety of web and mobile projects, with a focus on creating seamless user experiences.",
+//       achievements: [
+//         "Developed and launched 5 successful mobile apps using Flutter",
+//         "Optimized database queries, improving application performance by 30%",
+//         "Implemented responsive design principles, enhancing mobile user engagement by 50%",
+//       ],
+//       technologies: ["Flutter", "React", "Express.js", "MongoDB", "Firebase"],
+//       image: "/images/placeholder.png",
+//     },
+//     {
+//       title: "Freelance Software Developer",
+//       company: "Self-employed",
+//       date: "2018 - 2019",
+//       description:
+//         "Worked on multiple mobile and web applications for various clients, specializing in Flutter and React development.",
+//       achievements: [
+//         "Delivered 10+ projects for clients across different industries",
+//         "Maintained a 100% client satisfaction rate",
+//         "Developed a custom CMS that increased content management efficiency by 40%",
+//       ],
+//       technologies: ["React", "Flutter", "WordPress", "PHP", "MySQL"],
+//       image: "/images/placeholder.png",
+//     },
+//   ];
 
-  const education = [
-    {
-      degree: "Master of Science in Computer Science",
-      institution: "Tech University",
-      date: "2019 - 2021",
-      description:
-        "Focused on advanced algorithms, machine learning, and distributed systems.",
-      achievements: [
-        "Graduated with honors",
-        "Published a paper on efficient distributed computing algorithms",
-        "Completed a thesis on optimizing neural networks for edge devices",
-      ],
-      image: "/images/placeholder.png",
-    },
-    {
-      degree: "Bachelor's Degree in Computer Science",
-      institution: "University of Tripoli",
-      date: "2015 - 2019",
-      description:
-        "Gained a strong foundation in computer science principles and software development.",
-      achievements: [
-        "Graduated top of the class",
-        "Led the university's programming team to national competition finals",
-        "Developed an award-winning project on smart home automation",
-      ],
-      image: "/images/placeholder.png",
-    },
-    {
-      degree: "Linear Algebra Course",
-      institution: "MIT (Online)",
-      date: "2020",
-      description:
-        "Intensive course covering advanced linear algebra concepts and applications in computer science.",
-      achievements: [
-        "Completed with a perfect score",
-        "Applied learnings to optimize matrix operations in a machine learning project",
-      ],
-      image: "/images/placeholder.png",
-    },
-  ];
+//   const education = [
+//     {
+//       degree: "Master of Science in Computer Science",
+//       institution: "Tech University",
+//       date: "2019 - 2021",
+//       description:
+//         "Focused on advanced algorithms, machine learning, and distributed systems.",
+//       achievements: [
+//         "Graduated with honors",
+//         "Published a paper on efficient distributed computing algorithms",
+//         "Completed a thesis on optimizing neural networks for edge devices",
+//       ],
+//       image: "/images/placeholder.png",
+//     },
+//     {
+//       degree: "Bachelor&apos;s Degree in Computer Science",
+//       institution: "University of Tripoli",
+//       date: "2015 - 2019",
+//       description:
+//         "Gained a strong foundation in computer science principles and software development.",
+//       achievements: [
+//         "Graduated top of the class",
+//         "Led the university's programming team to national competition finals",
+//         "Developed an award-winning project on smart home automation",
+//       ],
+//       image: "/images/placeholder.png",
+//     },
+//     {
+//       degree: "Linear Algebra Course",
+//       institution: "MIT (Online)",
+//       date: "2020",
+//       description:
+//         "Intensive course covering advanced linear algebra concepts and applications in computer science.",
+//       achievements: [
+//         "Completed with a perfect score",
+//         "Applied learnings to optimize matrix operations in a machine learning project",
+//       ],
+//       image: "/images/placeholder.png",
+//     },
+//   ];
 
-  return (
-    <section id="experience" className="py-20 bg-white dark:bg-neutral-950">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          Experience & Education
-        </h2>
+//   return (
+//     <section id="experience" className="py-20 bg-white dark:bg-neutral-950">
+//       <div className="container mx-auto px-4">
+//         <h2 className="text-3xl font-bold text-center mb-12">
+//           Experience & Education
+//         </h2>
 
-        <div className="mb-16">
-          <h3 className="text-2xl font-semibold mb-6 flex items-center">
-            <Briefcase className="mr-2" /> Professional Experience
-          </h3>
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <Card key={index} className="relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-1 h-full bg-primary rounded-l-lg" />
-                <div className="flex flex-col md:flex-row">
-                  <div className="md:w-1/4 p-6 flex justify-center items-center">
-                    <Image
-                      src={exp.image}
-                      alt={exp.company}
-                      width={100}
-                      height={100}
-                      className="rounded-full"
-                    />
-                  </div>
-                  <div className="md:w-3/4 p-6">
-                    <CardHeader>
-                      <CardTitle>{exp.title}</CardTitle>
-                      <CardDescription>
-                        {exp.company} | {exp.date}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="mb-4">{exp.description}</p>
-                      <h4 className="font-semibold mb-2">Key Achievements:</h4>
-                      <ul className="list-disc list-inside mb-4">
-                        {exp.achievements.map((achievement, i) => (
-                          <li key={i}>{achievement}</li>
-                        ))}
-                      </ul>
-                      <div className="flex flex-wrap gap-2">
-                        {exp.technologies.map((tech, i) => (
-                          <Badge key={i} variant="secondary">
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
+//         <div className="mb-16">
+//           <h3 className="text-2xl font-semibold mb-6 flex items-center">
+//             <Briefcase className="mr-2" /> Professional Experience
+//           </h3>
+//           <div className="space-y-12">
+//             {experiences.map((exp, index) => (
+//               <Card key={index} className="relative overflow-hidden">
+//                 <div className="absolute top-0 left-0 w-1 h-full bg-primary rounded-l-lg" />
+//                 <div className="flex flex-col md:flex-row">
+//                   <div className="md:w-1/4 p-6 flex justify-center items-center">
+//                     <Image
+//                       src={exp.image}
+//                       alt={exp.company}
+//                       width={100}
+//                       height={100}
+//                       className="rounded-full"
+//                     />
+//                   </div>
+//                   <div className="md:w-3/4 p-6">
+//                     <CardHeader>
+//                       <CardTitle>{exp.title}</CardTitle>
+//                       <CardDescription>
+//                         {exp.company} | {exp.date}
+//                       </CardDescription>
+//                     </CardHeader>
+//                     <CardContent>
+//                       <p className="mb-4">{exp.description}</p>
+//                       <h4 className="font-semibold mb-2">Key Achievements:</h4>
+//                       <ul className="list-disc list-inside mb-4">
+//                         {exp.achievements.map((achievement, i) => (
+//                           <li key={i}>{achievement}</li>
+//                         ))}
+//                       </ul>
+//                       <div className="flex flex-wrap gap-2">
+//                         {exp.technologies.map((tech, i) => (
+//                           <Badge key={i} variant="secondary">
+//                             {tech}
+//                           </Badge>
+//                         ))}
+//                       </div>
+//                     </CardContent>
+//                   </div>
+//                 </div>
+//               </Card>
+//             ))}
+//           </div>
+//         </div>
 
-        <div>
-          <h3 className="text-2xl font-semibold mb-6 flex items-center">
-            <GraduationCap className="mr-2" /> Education
-          </h3>
-          <div className="space-y-8">
-            {education.map((edu, index) => (
-              <Card key={index} className="relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-1 h-full bg-secondary rounded-l-lg" />
-                <div className="flex flex-col md:flex-row">
-                  <div className="md:w-1/4 p-6 flex justify-center items-center">
-                    <Image
-                      src={edu.image}
-                      alt={edu.institution}
-                      width={100}
-                      height={100}
-                      className="rounded-full"
-                    />
-                  </div>
-                  <div className="md:w-3/4 p-6">
-                    <CardHeader>
-                      <CardTitle>{edu.degree}</CardTitle>
-                      <CardDescription>
-                        {edu.institution} | {edu.date}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="mb-4">{edu.description}</p>
-                      <h4 className="font-semibold mb-2">Achievements:</h4>
-                      <ul className="list-disc list-inside">
-                        {edu.achievements.map((achievement, i) => (
-                          <li key={i}>{achievement}</li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+//         <div>
+//           <h3 className="text-2xl font-semibold mb-6 flex items-center">
+//             <GraduationCap className="mr-2" /> Education
+//           </h3>
+//           <div className="space-y-8">
+//             {education.map((edu, index) => (
+//               <Card key={index} className="relative overflow-hidden">
+//                 <div className="absolute top-0 left-0 w-1 h-full bg-secondary rounded-l-lg" />
+//                 <div className="flex flex-col md:flex-row">
+//                   <div className="md:w-1/4 p-6 flex justify-center items-center">
+//                     <Image
+//                       src={edu.image}
+//                       alt={edu.institution}
+//                       width={100}
+//                       height={100}
+//                       className="rounded-full"
+//                     />
+//                   </div>
+//                   <div className="md:w-3/4 p-6">
+//                     <CardHeader>
+//                       <CardTitle>{edu.degree}</CardTitle>
+//                       <CardDescription>
+//                         {edu.institution} | {edu.date}
+//                       </CardDescription>
+//                     </CardHeader>
+//                     <CardContent>
+//                       <p className="mb-4">{edu.description}</p>
+//                       <h4 className="font-semibold mb-2">Achievements:</h4>
+//                       <ul className="list-disc list-inside">
+//                         {edu.achievements.map((achievement, i) => (
+//                           <li key={i}>{achievement}</li>
+//                         ))}
+//                       </ul>
+//                     </CardContent>
+//                   </div>
+//                 </div>
+//               </Card>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }
 
 export function Blog() {
   return (
@@ -992,7 +982,7 @@ export function Blog() {
 
 // Contact Component
 
-export function SocialButton({ icon, label, href }) {
+export function SocialButton({ icon, label, href } : {icon: React.ReactNode, label: string, href: string}) {
   return (
     <a
       href={href}
@@ -1046,7 +1036,7 @@ function Contact() {
               data-aos-delay="200"
             >
               <p className="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                I'm always open to new opportunities and collaborations. Feel
+                I&apos;m always open to new opportunities and collaborations. Feel
                 free to reach out if you have any questions or just want to
                 connect!
               </p>

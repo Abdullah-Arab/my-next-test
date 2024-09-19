@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { BriefcaseIcon, CodeIcon, PenToolIcon } from "lucide-react";
 
-export default function hero() {
+export default function Hero() {
   const [typedText, setTypedText] = useState("");
   const fullText = "Full Stack Developer | Problem Solver | Tech Enthusiast";
 
@@ -15,7 +15,7 @@ export default function hero() {
     }
   }, [typedText]);
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
   return (
