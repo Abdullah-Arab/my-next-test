@@ -504,32 +504,47 @@ function Skills() {
     {
       name: "Programming Languages",
       description: "Core languages I'm proficient in",
-      skills: ["Java", "JavaScript", "TypeScript", "Dart", "Python"],
-    },
-    {
-      name: "Frontend Development",
-      description: "Technologies for building responsive and interactive UIs",
-      skills: ["React", "Next.js", "Flutter", "HTML5", "CSS3", "Tailwind CSS"],
-    },
-    {
-      name: "Backend Development",
-      description: "Server-side technologies and databases",
-      skills: ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "Firebase"],
-    },
-    {
-      name: "DevOps & Tools",
-      description: "Tools and practices for efficient development deployment",
-      skills: ["Git", "Docker", "CI/CD Pipelines", "AWS", "Vercel"],
+      skills: ["Java", "JavaScript", "TypeScript", "Dart", "Python", "C"],
     },
     {
       name: "Mobile Development",
       description: "Frameworks and tools for building mobile applications",
-      skills: ["Flutter", "React Native", "Bloc (Flutter)", "Android SDK"],
+      skills: [
+        "Flutter",
+        "Bloc (Flutter)",
+        "DDD & Clean architecutre",
+        "Android SDK",
+        "iOS SDK",
+      ],
     },
+    {
+      name: "Frontend Development",
+      description: "Technologies for building responsive and interactive UIs",
+      skills: ["React", "Next.js", "HTML5", "CSS3", "Tailwind CSS"],
+    },
+    // {
+    //   name: "Backend Development",
+    //   description: "Server-side technologies and databases",
+    //   skills: ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "Firebase"],
+    // },
+    // {
+    //   name: "DevOps & Tools",
+    //   description: "Tools and practices for efficient development deployment",
+    //   skills: ["Git", "Docker", "CI/CD Pipelines", "AWS", "Vercel"],
+    // },
+
     {
       name: "Other Technologies",
       description: "Additional tools and frameworks I work with",
-      skills: ["GraphQL", "REST APIs", "Vite", "Webpack", "ERPNext", "SaaS"],
+      skills: [
+        "REST APIs",
+        "Vite",
+        "Node.js",
+        "ERPNext",
+        "Firebase",
+        "Git",
+        "Dockers",
+      ],
     },
   ];
 
@@ -544,11 +559,11 @@ function Skills() {
 
   return (
     <section id="skills" className="py-20 bg-white dark:bg-neutral-950">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 ">
         <h2 className="text-3xl font-bold text-center mb-12">
           Skills & Expertise
         </h2>
-        <ScrollArea className="w-full whitespace-nowrap rounded-md border">
+        <ScrollArea className="w-full whitespace-nowrap rounded-md border dark:border-neutral-800 ">
           <div className="flex w-max space-x-4 p-4">
             {skillCategories.map((category, index) => (
               <Card key={index} className="w-[350px]">
