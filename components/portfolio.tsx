@@ -36,6 +36,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import Hero from "./hero";
 
 // Navbar Component
 function Navbar() {
@@ -319,6 +320,7 @@ export const BackgroundGradientAnimation = ({
     </div>
   );
 };
+
 function Home() {
   const [typedText, setTypedText] = useState("");
   const fullText = "Full Stack Developer | Problem Solver | Tech Enthusiast";
@@ -348,10 +350,10 @@ function Home() {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col justify-center items-center text-center p-6"
+      className="min-h-screen flex flex-col justify-center items-center text-center p-6 "
     >
       <h1 className="text-4xl md:text-6xl font-bold mb-4">
-        Hi, I'm Abdullah Arab
+        Hi, I'm Abdullah Arab 👋🏻
       </h1>
       <p className="text-xl md:text-2xl text-muted-foreground mb-4">
         Turning ideas into apps that matter
@@ -999,21 +1001,15 @@ export function Portfolio() {
       <div className="min-h-screen bg-white text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
         <Navbar />
         <main>
-          <BackgroundGradientAnimation
-            className="
-          h-[50vh]"
-            // make the background diffrent in each theme
-            gradientBackgroundStart="rgb(240, 248, 255)"
-            gradientBackgroundEnd="rgb(25, 42, 86)"
-            firstColor="60, 120, 216"
-            secondColor="105, 130, 145"
-            thirdColor="255, 255, 255"
-            fourthColor="200, 200, 200"
-            fifthColor="30, 50, 80"
-            pointerColor="255, 255, 255"
-          >
-            <Home />
+          <Home />
+          <BackgroundGradientAnimation>
+            <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl">
+              <p className="bg-clip-text text-transparent drop-shadow-2xl bg-gradient-to-b from-white/80 to-white/20">
+                Turning ideas into apps that matter
+              </p>
+            </div>
           </BackgroundGradientAnimation>
+
           <About />
           <Skills />
           <Projects />
