@@ -9,7 +9,6 @@ import {
   Moon,
   Sun,
   Menu,
-  
   Briefcase,
   Code,
   Linkedin,
@@ -22,8 +21,8 @@ import {
   PhoneIcon,
 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/app/components/ui/button";
+import { Badge } from "@/app/components/ui/badge";
 import {
   Card,
   CardContent,
@@ -31,10 +30,10 @@ import {
   CardHeader,
   CardTitle,
   CardFooter,
-} from "@/components/ui/card";
+} from "@/app/components/ui/card";
 
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { ScrollArea, ScrollBar } from "@/app/components/ui/scroll-area";
+import { Sheet, SheetContent, SheetTrigger } from "@/app/components/ui/sheet";
 
 // Navbar Component
 function Navbar() {
@@ -51,7 +50,6 @@ function Navbar() {
       { name: "Contact", href: "#contact" },
     ];
   }, []);
- 
 
   useEffect(() => {
     console.log("PRESSED");
@@ -199,7 +197,18 @@ export const BackgroundGradientAnimation = ({
     document.body.style.setProperty("--pointer-color", pointerColor);
     document.body.style.setProperty("--size", size);
     document.body.style.setProperty("--blending-value", blendingValue);
-  }, [blendingValue, fifthColor, firstColor, fourthColor, gradientBackgroundEnd, gradientBackgroundStart, pointerColor, secondColor, size, thirdColor]);
+  }, [
+    blendingValue,
+    fifthColor,
+    firstColor,
+    fourthColor,
+    gradientBackgroundEnd,
+    gradientBackgroundStart,
+    pointerColor,
+    secondColor,
+    size,
+    thirdColor,
+  ]);
 
   useEffect(() => {
     function move() {
@@ -477,9 +486,9 @@ function About() {
         <h2 className="text-3xl font-bold text-center mb-8">About Me</h2>
         <div className="max-w-3xl mx-auto">
           <p className="text-lg mb-6">
-            I&apos;m a software developer with over 4 years of experience in software
-            development. I have a <strong>strong foundation</strong> in Software
-            Development, and have freelanced as both a{" "}
+            I&apos;m a software developer with over 4 years of experience in
+            software development. I have a <strong>strong foundation</strong> in
+            Software Development, and have freelanced as both a{" "}
             <strong>web & mobile developer</strong>. I&apos;m passionate about
             building functional, high-performing applications using technologies
             like <strong>Flutter</strong> and React/Next.js.
@@ -487,9 +496,9 @@ function About() {
           <p className="text-lg">
             From a young age, I&apos;ve been drawn to{" "}
             <strong>problem-solving</strong> and{" "}
-            <strong>creating things</strong> that make people&apos;s lives easier.
-            When I&apos;m not coding, I&apos;m either exploring new technologies or gaming
-            to unwind.
+            <strong>creating things</strong> that make people&apos;s lives
+            easier. When I&apos;m not coding, I&apos;m either exploring new
+            technologies or gaming to unwind.
           </p>
         </div>
       </div>
@@ -982,7 +991,15 @@ export function Blog() {
 
 // Contact Component
 
-export function SocialButton({ icon, label, href } : {icon: React.ReactNode, label: string, href: string}) {
+export function SocialButton({
+  icon,
+  label,
+  href,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  href: string;
+}) {
   return (
     <a
       href={href}
@@ -1036,8 +1053,8 @@ function Contact() {
               data-aos-delay="200"
             >
               <p className="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                I&apos;m always open to new opportunities and collaborations. Feel
-                free to reach out if you have any questions or just want to
+                I&apos;m always open to new opportunities and collaborations.
+                Feel free to reach out if you have any questions or just want to
                 connect!
               </p>
               <Card className="flex flex-col items-center space-y-4 p-8">

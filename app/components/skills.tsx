@@ -1,14 +1,14 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/app/components/ui/badge";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+} from "@/app/components/ui/card";
+import { ScrollArea, ScrollBar } from "@/app/components/ui/scroll-area";
 
 export function Skills() {
   const skillCategories = [
