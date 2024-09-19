@@ -24,7 +24,14 @@ import {
   CodeIcon,
   PenToolIcon,
   Twitter,
+  GithubIcon,
+  LinkedinIcon,
+  MailIcon,
+  SendIcon,
+  Facebook,
+  PhoneIcon,
 } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -40,6 +47,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import Hero from "./hero";
+import exp from "constants";
 
 // Navbar Component
 function Navbar() {
@@ -957,80 +965,153 @@ function Experience() {
     </section>
   );
 }
+
+export function Blog() {
+  return (
+    <section id="blog" className="space-y-8">
+      <h2 className="text-3xl font-bold">Blog</h2>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* {blogPosts.map((post, index) => (
+                <Card key={index} className="animate-fade-in">
+                  <img src={post.image} alt={post.title} className="w-full h-48 object-cover rounded-t-lg" />
+                  <CardHeader>
+                    <CardTitle>{post.title}</CardTitle>
+                    <CardDescription>{post.date} • {post.readTime}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p>{post.excerpt}</p>
+                    <Button variant="link" className="mt-4 p-0">Read more</Button>
+                  </CardContent>
+                </Card>
+              ))} */}
+      </div>
+    </section>
+  );
+}
+
 // Contact Component
+
+export function SocialButton({ icon, label, href }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-700 p-2 rounded-md transition-colors duration-300"
+    >
+      {icon}
+      <span>{label}</span>
+    </a>
+  );
+}
 function Contact() {
   const contactInfo = {
-    phone: "+1 (123) 456-7890",
-    email: "abdullah.arab@example.com",
+    phone: "+218 918507076",
+    email: "abdo.arab2014@gmail.com",
   };
 
   const socialMedia = [
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "https://www.linkedin.com/in/yourusername",
+      url: "https://www.linkedin.com/in/abdullah-arab-1451961b6/",
     },
-    { name: "GitHub", icon: Github, url: "https://github.com/yourusername" },
-    { name: "Twitter", icon: Twitter, url: "https://twitter.com/yourusername" },
+    { name: "GitHub", icon: Github, url: "https://github.com/Abdullah-Arab" },
+    {
+      name: "X",
+      icon: Twitter,
+      url: "https://x.com/AbdullahArab101",
+    },
+    {
+      name: "Facebook",
+      icon: Facebook,
+      url: "https://www.facebook.com/abdullahthedev101",
+    },
   ];
 
   return (
-    <section id="contact" className="py-20 bg-muted">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Get in Touch</h2>
-        <div className="max-w-md mx-auto">
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-2xl font-semibold text-center">
-                Contact Information
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex items-center justify-center space-x-2">
-                <Phone className="w-5 h-5 text-primary" />
-                <span>{contactInfo.phone}</span>
-              </div>
-              <div className="flex items-center justify-center space-x-2">
-                <Mail className="w-5 h-5 text-primary" />
-                <a
-                  href={`mailto:${contactInfo.email}`}
-                  className="hover:underline"
-                >
-                  {contactInfo.email}
-                </a>
-              </div>
-            </CardContent>
-          </Card>
+    <div>
+      <div className="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+        {/* ... (previous sections remain unchanged) */}
 
-          <div className="mt-8">
-            <h3 className="text-xl font-semibold text-center mb-4">
-              Connect with Me
-            </h3>
+        <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+          {/* ... (previous sections remain unchanged) */}
+
+          <section id="contact" className="space-y-8">
+            <h2 className="text-3xl font-bold text-center">Contact Me</h2>
+            <div
+              className="max-w-2xl mx-auto space-y-4"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <p className="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                I'm always open to new opportunities and collaborations. Feel
+                free to reach out if you have any questions or just want to
+                connect!
+              </p>
+              <Card className="flex flex-col items-center space-y-4 p-8">
+                <div className="flex items-center space-x-4">
+                  <MailIcon className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+                  <a
+                    href={`mailto:${contactInfo.email}`}
+                    className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
+                  >
+                    {contactInfo.email}
+                  </a>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <PhoneIcon className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+                  <a
+                    href={`tel:${contactInfo.phone}`}
+                    className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
+                  >
+                    {contactInfo.phone}
+                  </a>
+                </div>
+              </Card>
+            </div>
+            <p className="text-center">Follow me on</p>
             <div className="flex justify-center space-x-4">
-              {socialMedia.map((platform) => (
-                <a
-                  key={platform.name}
-                  href={platform.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors duration-200"
-                >
-                  <platform.icon className="w-6 h-6 text-primary" />
-                  <span className="sr-only">{platform.name}</span>
-                </a>
+              {socialMedia.map((social, index) => (
+                <SocialButton
+                  key={index}
+                  icon={<social.icon className="h-5 w-5" />}
+                  label={social.name}
+                  href={social.url}
+                />
               ))}
             </div>
-          </div>
+            <div className="text-center">
+              <Button
+                variant="link"
+                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
+                onClick={() =>
+                  window.open("https://curiouscat.live/abdoarab18")
+                }
+              >
+                <SendIcon className="mr-2 h-4 w-4" />
+                Send an anonymous message
+              </Button>
+            </div>
+          </section>
+        </main>
 
-          <div className="mt-12 text-center">
-            <p className="text-muted-foreground">
-              I'm always open to new opportunities and collaborations. Feel free
-              to reach out if you'd like to work together or just have a chat!
-            </p>
-          </div>
-        </div>
+        {/* <footer className="mt-24 text-center py-8 text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800">
+          <p>© {new Date().getFullYear()} John Doe. All rights reserved.</p>
+        </footer> */}
       </div>
-    </section>
+    </div>
+  );
+}
+
+// footer
+function Footer() {
+  return (
+    <footer className="bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800">
+      <div className="container mx-auto px-4 py-8">
+        <p>© {new Date().getFullYear()} Abdullah Arab. All rights reserved.</p>
+      </div>
+    </footer>
   );
 }
 
@@ -1053,9 +1134,10 @@ export function Portfolio() {
           <About />
           <Skills />
           <Projects />
-          <Experience />
+          {/* <Experience /> */}
           <Contact />
         </main>
+        <Footer />
       </div>
     </ThemeProvider>
   );
