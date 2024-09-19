@@ -20,6 +20,9 @@ import {
   Mail,
   Linkedin,
   Github,
+  BriefcaseIcon,
+  CodeIcon,
+  PenToolIcon,
   Twitter,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -323,7 +326,7 @@ export const BackgroundGradientAnimation = ({
 
 function Home() {
   const [typedText, setTypedText] = useState("");
-  const fullText = "Full Stack Developer | Problem Solver | Tech Enthusiast";
+  const fullText = "Mobile / Web Developer | Problem Solver | Tech Enthusiast";
   // const fullText = "Turning ideas into apps that matter";
 
   useEffect(() => {
@@ -341,10 +344,10 @@ function Home() {
   }, []);
 
   const services = [
-    { name: "Web Development", icon: Globe },
-    { name: "Mobile Development", icon: Smartphone },
-    { name: "Full Stack Solutions", icon: Code },
-    { name: "Database Design", icon: Database },
+    { name: "Clean Code", icon: Code },
+    // { name: "Mobile Development", icon: Smartphone },
+    { name: "4+ Years of Experience", icon: Briefcase },
+    { name: "Creative Solutions", icon: PenToolIcon },
   ];
 
   return (
@@ -355,13 +358,13 @@ function Home() {
       <h1 className="text-4xl md:text-6xl font-bold mb-4">
         Hi, I'm Abdullah Arab 👋🏻
       </h1>
-      <p className="text-xl md:text-2xl text-muted-foreground mb-4">
+      {/* <p className="text-xl md:text-2xl text-muted-foreground mb-4">
         Turning ideas into apps that matter
-      </p>
+      </p> */}
       <p className="text-lg md:text-xl text-primary font-semibold h-8 mb-8">
         {typedText}
       </p>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+      <div className="grid grid-cols-3 gap-8 mb-12">
         {services.map((service, index) => (
           <div key={index} className="flex flex-col items-center">
             <div className="bg-primary/10 p-4 rounded-full mb-2">
