@@ -119,6 +119,7 @@ function Navbar() {
             <NavLinks />
           </div>
           <div className="flex items-center space-x-4">
+            <Badge variant="outline">BETA</Badge>
             <Button
               variant="ghost"
               size="icon"
