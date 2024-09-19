@@ -1031,7 +1031,7 @@ function Contact() {
 
   return (
     <div>
-      <div className="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+      <div className=" text-gray-900 bg-white dark:bg-neutral-950 dark:text-gray-100 transition-colors duration-300">
         {/* ... (previous sections remain unchanged) */}
 
         <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
@@ -1107,8 +1107,8 @@ function Contact() {
 // footer
 function Footer() {
   return (
-    <footer className="bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800">
-      <div className="container mx-auto px-4 py-8">
+    <footer className="bg-white dark:bg-neutral-950 text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800">
+      <div className="container text-center mx-auto px-4 py-8">
         <p>© {new Date().getFullYear()} Abdullah Arab. All rights reserved.</p>
       </div>
     </footer>
