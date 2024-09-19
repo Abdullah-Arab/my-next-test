@@ -478,17 +478,19 @@ function About() {
         <h2 className="text-3xl font-bold text-center mb-8">About Me</h2>
         <div className="max-w-3xl mx-auto">
           <p className="text-lg mb-6">
-            I'm a software engineer with over 4 years of experience in mobile
-            app development and 2 years in SaaS products. I have a strong
-            foundation in DevOps, ERPNext, and have freelanced as both a
-            software developer and graphic designer. I'm passionate about
+            I'm a software developer with over 4 years of experience in software
+            development. I have a <strong>strong foundation</strong> in Software
+            Development, and have freelanced as both a{" "}
+            <strong>web & mobile developer</strong>. I'm passionate about
             building functional, high-performing applications using technologies
-            like Flutter and React/Next.js.
+            like <strong>Flutter</strong> and React/Next.js.
           </p>
           <p className="text-lg">
-            From a young age, I've been drawn to problem-solving and creating
-            things that make people's lives easier. When I'm not coding, I'm
-            either exploring new technologies or gaming to unwind.
+            From a young age, I've been drawn to{" "}
+            <strong>problem-solving</strong> and{" "}
+            <strong>creating things</strong> that make people's lives easier.
+            When I'm not coding, I'm either exploring new technologies or gaming
+            to unwind.
           </p>
         </div>
       </div>
