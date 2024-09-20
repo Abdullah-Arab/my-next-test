@@ -3,8 +3,9 @@ import { cn } from "@/lib/utils";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+
 import Image from "next/image";
-import { ThemeProvider, useTheme } from "next-themes";
+import { useTheme } from "next-themes";
 import {
   Moon,
   Sun,
@@ -52,7 +53,6 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    console.log("PRESSED");
     const handleScroll = () => {
       const sections = navItems.map((item) => item.name.toLowerCase());
       const currentSection = sections.find((section) => {
@@ -72,13 +72,17 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [navItems]);
 
-  const NavLinks = ({ onClick = () => {} }) => (
+  const NavLinks = ({
+    onClick = () => {
+      console.log("PRESSED");
+    },
+  }) => (
     <>
       {navItems.map((item) => (
-        <Link
+        <a
           key={item.name}
           href={item.href}
-          onClick={onClick}
+          // onClick={onClick}
           className={`text-sm font-medium transition-colors hover:text-primary ${
             activeSection === item.name.toLowerCase()
               ? "text-primary"
@@ -86,7 +90,7 @@ export function Navbar() {
           }`}
         >
           {item.name}
-        </Link>
+        </a>
       ))}
     </>
   );
@@ -384,10 +388,10 @@ export function Home() {
       </div>
       <div className="space-x-4">
         <Button asChild>
-          <Link href="#projects">Explore My Work</Link>
+          <a href="#projects">Explore My Work</a>
         </Button>
         <Button asChild variant="outline">
-          <Link href="#contact">Contact Me</Link>
+          <a href="#contact">Contact Me</a>
         </Button>
       </div>
     </section>
@@ -1035,33 +1039,5 @@ export function Footer() {
         <p>© {new Date().getFullYear()} Abdullah Arab. All rights reserved.</p>
       </div>
     </footer>
-  );
-}
-
-// Main Page Component
-export function Portfolio() {
-  return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <div className="min-h-screen bg-white text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
-        <Navbar />
-        <main>
-          <Home />
-          <BackgroundGradientAnimation>
-            <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl">
-              <p className="bg-clip-text text-transparent drop-shadow-2xl bg-gradient-to-b from-white/80 to-white/20">
-                Turning ideas into apps that matter
-              </p>
-            </div>
-          </BackgroundGradientAnimation>
-
-          <About />
-          <Skills />
-          <Projects />
-          {/* <Experience /> */}
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-    </ThemeProvider>
   );
 }
