@@ -82,7 +82,7 @@ export function Navbar() {
         <a
           key={item.name}
           href={item.href}
-          // onClick={onClick}
+          onClick={onClick}
           className={`text-sm font-medium transition-colors hover:text-primary ${
             activeSection === item.name.toLowerCase()
               ? "text-primary"
