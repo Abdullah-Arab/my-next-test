@@ -2,7 +2,16 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
-import { Portfolio } from "@/app/components/portfolio";
+import {
+  About,
+  BackgroundGradientAnimation,
+  Contact,
+  Footer,
+  Home,
+  Navbar,
+  Projects,
+  Skills,
+} from "@/app/components/portfolio";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,9 +29,7 @@ export const metadata: Metadata = {
   description: "Abdullah Arab's personal website",
 };
 
-export default function RootLayout({
-
-}: Readonly<{
+export default function RootLayout({}: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
@@ -30,8 +37,24 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Portfolio />
-        {/* {children} */}
+        <Navbar />
+        <main>
+          <Home />
+          <BackgroundGradientAnimation>
+            <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl">
+              <p className="bg-clip-text text-transparent drop-shadow-2xl bg-gradient-to-b from-white/80 to-white/20">
+                Turning ideas into apps that matter
+              </p>
+            </div>
+          </BackgroundGradientAnimation>
+
+          <About />
+          <Skills />
+          <Projects />
+          {/* <Experience /> */}
+          <Contact />
+        </main>
+        <Footer />
       </body>
     </html>
   );

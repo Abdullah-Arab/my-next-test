@@ -36,7 +36,7 @@ import { ScrollArea, ScrollBar } from "@/app/components/ui/scroll-area";
 import { Sheet, SheetContent, SheetTrigger } from "@/app/components/ui/sheet";
 
 // Navbar Component
-function Navbar() {
+export function Navbar() {
   const [activeSection, setActiveSection] = useState("");
   const { theme, setTheme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -332,7 +332,7 @@ export const BackgroundGradientAnimation = ({
   );
 };
 
-function Home() {
+export function Home() {
   const [typedText, setTypedText] = useState("");
   const fullText = "Mobile / Web Developer | Problem Solver | Tech Enthusiast";
   // const fullText = "Turning ideas into apps that matter";
@@ -394,92 +394,7 @@ function Home() {
   );
 }
 
-// Home Component
-// function Home() {
-//   const [typedText, setTypedText] = useState("");
-//   const fullText = "Full Stack Developer | Problem Solver | Tech Enthusiast";
-
-//   useEffect(() => {
-//     let i = 0;
-//     const typingInterval = setInterval(() => {
-//       if (i < fullText.length) {
-//         setTypedText(fullText.slice(0, i + 1));
-//         i++;
-//       } else {
-//         clearInterval(typingInterval);
-//       }
-//     }, 50);
-
-//     return () => clearInterval(typingInterval);
-//   }, []);
-
-//   const services = [
-//     { name: "Web Development", icon: Globe },
-//     { name: "Mobile Development", icon: Smartphone },
-//     { name: "Full Stack Solutions", icon: Code },
-//     { name: "Database Design", icon: Database },
-//   ];
-
-//   return (
-//     <section
-//       id="home"
-//       className="min-h-screen flex flex-col justify-center items-center text-center p-6"
-//     >
-//       <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
-//         <div className="text-left space-y-6">
-//           <h1 className="text-4xl md:text-6xl font-bold mb-4 animate-fade-in-up">
-//             Hi, I&apos;m Abdullah Arab
-//           </h1>
-//           <p className="text-xl md:text-2xl text-muted-foreground mb-4 animate-fade-in-up animation-delay-200">
-//             Turning ideas into apps that matter
-//           </p>
-//           <p className="text-lg md:text-xl text-primary font-semibold h-8 mb-8 animate-fade-in-up animation-delay-400 ">
-//             {typedText}
-//           </p>
-//           <div className="space-x-4 mb-8">
-//             <Button asChild>
-//               <Link href="#projects">Explore My Work</Link>
-//             </Button>
-//             <Button asChild variant="outline">
-//               <Link href="#contact">Contact Me</Link>
-//             </Button>
-//           </div>
-//           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-//             {services.map((service, index) => (
-//               <div key={index} className="flex flex-col items-center">
-//                 <div className="bg-primary/10 p-4 rounded-full mb-2">
-//                   <service.icon className="w-8 h-8 text-primary" />
-//                 </div>
-//                 <p className="text-sm font-medium">{service.name}</p>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-
-//         <div className="relative hidden md:block">
-//           <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full animate-pulse"></div>
-//           <Image
-//             src="/images/placeholder.png"
-//             alt="Abdullah Arab"
-//             width={600}
-//             height={600}
-//             className="rounded-full animate-float"
-//           />
-//         </div>
-//       </div>
-//       {/* <div className="mt-16 w-full">
-//         <h2 className="text-2xl font-semibold text-center mb-8 animate-fade-in-up animation-delay-800">
-//           My Services
-//         </h2>
-//       </div> */}
-//       <div className="mt-16 animate-bounce">
-//         <ChevronDown className="w-8 h-8 text-primary" />
-//       </div>
-//     </section>
-//   );
-// }
-// About Component
-function About() {
+export function About() {
   return (
     <section id="about" className="py-20 bg-neutral-100 dark:bg-neutral-800">
       <div className="container mx-auto px-4">
@@ -507,7 +422,7 @@ function About() {
 }
 
 // Skills Component
-function Skills() {
+export function Skills() {
   const skillCategories = [
     {
       name: "Programming Languages",
@@ -620,7 +535,7 @@ function Skills() {
 }
 
 // Projects Component
-function Projects() {
+export function Projects() {
   const featuredProject = {
     name: "Hajat Delivery",
     description:
@@ -1012,7 +927,7 @@ export function SocialButton({
     </a>
   );
 }
-function Contact() {
+export function Contact() {
   const contactInfo = {
     phone: "+218 918507076",
     email: "abdo.arab2014@gmail.com",
@@ -1113,7 +1028,7 @@ function Contact() {
 }
 
 // footer
-function Footer() {
+export function Footer() {
   return (
     <footer className="bg-white dark:bg-neutral-950 text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800">
       <div className="container text-center mx-auto px-4 py-8">
