@@ -579,6 +579,20 @@ export function Projects() {
       image: "/images/sizzling_prev.png",
     },
     {
+      name: "Itmam",
+      description: "Landing Page ",
+      features: ["Geolocation", "Weather API integration", "Responsive design"],
+      github: "https://itmam.ly/",
+      image: "/images/almozn.png",
+    },
+    {
+      name: "Al-Mozn",
+      description: "Landing Page ",
+      features: ["Geolocation", "Weather API integration", "Responsive design"],
+      github: "https://almozn.ly/",
+      image: "/images/itmam.png",
+    },
+    {
       name: "Perde Festival",
       description: "Landing Page ",
       features: ["Geolocation", "Weather API integration", "Responsive design"],
